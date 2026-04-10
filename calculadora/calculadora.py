@@ -12,13 +12,19 @@ def restar(a,b):
 
 
 def multiplicar(a,b):
-    return a * b
+    """Multiplica dos números y devuelve el resultado."""
+    resultado = a * b
+    print(f" {a} por {b} = {resultado}")
+    return resultado
 
 
 def dividir(a,b):
+    """Divide dos números y devuelve el resultado. Si el divisor es cero, lanza una excepción."""
     if b==0:
         raise ValueError("No se puede dividir por cero")
-    return a / b
+    resultado = round(a / b, 2)
+    print(f" {a} dividido por {b} = {resultado}")
+    return resultado
 
 def mostrar_menu():
     print(("\n=============  CALCULADORA TS2 ============="))
@@ -32,27 +38,27 @@ def mostrar_menu():
 
 
 if __name__ == "__main__":
-    print("Calculadora iniciada por desarrollador A en la rama suma-resta")
+    print("Calculadora iniciada e integrada")
+
     while True:
         mostrar_menu()
         opcion = input("Ingrese el número de la operación que desea realizar: ")
         if opcion == '5':
             print("Saliendo de la calculadora. ¡Hasta luego!")
             break
-        elif opcion in ['1', '2']:
+        elif opcion in ['1', '2', '3', '4']:
             try:
                 num1 = float(input("Ingrese el primer número: "))
                 num2 = float(input("Ingrese el segundo número: "))
                 if opcion == '1':
                     sumar(num1, num2)
-                else:
+                elif opcion == '2':
                     restar(num1, num2)
+                elif opcion == '3':
+                    multiplicar(num1, num2)
+                elif opcion == '4':
+                    dividir(num1, num2)
             except ValueError:
                 print("Entrada no válida. Por favor, ingrese números válidos.")
         else:
             print("Opción no válida. Por favor, seleccione una opción del menú.")
-
-
-    
-
-
